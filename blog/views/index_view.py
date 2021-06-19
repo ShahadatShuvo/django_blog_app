@@ -1,13 +1,20 @@
 from django.shortcuts import render
+from blog.models import Post
+from merketing.models import Signup
 
 
-def index(request):
-    return render(request, 'index.html', context={})
+def indexView(request):
+    featured = Post.objects.filter(featured=True)
+    latest = Post.objects.order_by('-timestamp')[0:3]
 
+    if request.method == 'POST':
+        email = request.POST['email']
+        new_signup = Signup()
+        new_signup.email = email
+        new_signup.save()
 
-def blog(request):
-    return render(request, 'blog.html', context={})
-
-
-def post(request):
-    return render(request, 'post.html', context={})
+    context = {
+        'object_list': featured,
+        'latest': latest,
+    }
+    return render(request, 'index.html', context)
