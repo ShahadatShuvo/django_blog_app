@@ -20,6 +20,7 @@ class PostAdmin(admin.ModelAdmin):
         'title',
         'timestamp',
         'comment_count',
+        'view_count',
         'author',
         'featured'
     ]

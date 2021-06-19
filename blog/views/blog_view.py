@@ -4,6 +4,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def blogView(request):
+    latest_post = Post.objects.order_by('-timestamp')[0:3]
     blog_list = Post.objects.all()
     paginator = Paginator(blog_list, 4)
     page_request_var = 'page'
@@ -15,12 +16,10 @@ def blogView(request):
     except EmptyPage:
         paginated_queryset = paginator.page(paginator.num_pages)
 
-    # latest_post = Post.objects.order_by('-timestamp')[0:3]
-
     context = {
         'blog_list': blog_list,
         'queryset': paginated_queryset,
         'page_request_var': page_request_var,
-        # 'most_recent': latest_post,
+        'latest_post': latest_post,
     }
     return render(request, 'blog.html', context)

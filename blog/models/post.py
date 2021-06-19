@@ -10,6 +10,7 @@ class Post(models.Model):
     categories = models.ManyToManyField(Category)
     overview = models.TextField()
     thumbnail = models.ImageField(upload_to='post', default='no_image.jpeg')
+    view_count = models.IntegerField(default=0)
     comment_count = models.IntegerField(default=0)
     timestamp = models.DateTimeField(auto_now_add=True)
     featured = models.BooleanField(default=True)
