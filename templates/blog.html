@@ -14,7 +14,9 @@
                     {% for blog in queryset %}
                     <!-- post -->
                     <div class="post col-xl-6">
-                        <div class="post-thumbnail"><a href="post.html"><img src="{{ blog.thumbnail.url }}" alt="..."
+                        <div class="post-thumbnail">
+                            <a href="">
+                            <img src="{{ blog.thumbnail.url }}" alt="..."
                                                                              class="img-fluid"></a></div>
                         <div class="post-details">
                             <div class="post-meta d-flex justify-content-between">
@@ -22,7 +24,7 @@
                                 <div class="category"><a href="#">{{ cat.name }}</a></div>
                                 {% endfor %}
                             </div>
-                            <a href="post.html">
+                            <a href="{{ blog.get_absolute_url }}">
                                 <h3 class="h4">{{ blog.title }}</h3></a>
                             <p class="text-muted">{{ blog.overview }}</p>
                             <footer class="post-footer d-flex align-items-center"><a href="#"
@@ -79,7 +81,8 @@
                     <h3 class="h6">Latest Posts</h3>
                 </header>
                 {% for article in latest_post %}
-                <div class="blog-posts"><a href="#">
+                <div class="blog-posts">
+                    <a href="{{ article.get_absolute_url }}">
                     <div class="item d-flex align-items-center">
                         <div class="image"><img src="{{ article.thumbnail.url }}" alt="..."
                                                 class="img-fluid"></div>

@@ -11,6 +11,5 @@ app_name = 'blog'
 urlpatterns = [
     path('', indexView, name='index-view'),
     path('blog/', blogView, name='blog-view'),
-    path('post/', postView, name='post-view'),
 
 ]

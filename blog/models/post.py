@@ -2,6 +2,7 @@ from django.db import models
 from .author import Author
 from .category import Category
 from django.utils.safestring import mark_safe
+from django.urls import reverse
 
 
 class Post(models.Model):
@@ -23,3 +24,9 @@ class Post(models.Model):
 
     admin_photo.short_description = 'Image'
     admin_photo.allow_tags = True
+
+    def get_absolute_url(self):
+        return reverse('post-view', kwargs={
+            'id': self.id,
+        })
+
