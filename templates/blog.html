@@ -73,8 +73,6 @@
                     </div>
                 </form>
             </div>
-
-
             <!-- Widget [Latest Posts Widget]        -->
             <div class="widget latest-posts">
                 <header>
@@ -83,26 +81,22 @@
                 {% for article in latest_post %}
                 <div class="blog-posts">
                     <a href="{{ article.get_absolute_url }}">
-                    <div class="item d-flex align-items-center">
-                        <div class="image"><img src="{{ article.thumbnail.url }}" alt="..."
-                                                class="img-fluid"></div>
-                        <div class="title"><strong>{{ article.title }}</strong>
-                            <div class="d-flex align-items-center">
-                                <div class="views"><i class="icon-eye"></i>{{ article.view_count }}</div>
-                                <div class="comments"><i class="icon-comment"></i>{{ article.comment_count }}</div>
+                        <div class="item d-flex align-items-center">
+                            <div class="image"><img src="{{ article.thumbnail.url }}" alt="..."
+                                                    class="img-fluid"></div>
+                            <div class="title"><strong>{{ article.title }}</strong>
+                                <div class="d-flex align-items-center">
+                                    <div class="views"><i class="icon-eye"></i>{{ article.view_count }}</div>
+                                    <div class="comments"><i class="icon-comment"></i>{{ article.comment_count }}</div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    {% endfor %}
-                </a>
-
+                        {% endfor %}
+                    </a>
                     <a href="#">
-
                     </a>
                 </div>
             </div>
-
-
             <!-- Widget [Categories Widget]-->
             <div class="widget categories">
                 <header>

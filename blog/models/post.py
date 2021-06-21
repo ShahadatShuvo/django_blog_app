@@ -10,13 +10,19 @@ class Post(models.Model):
     title = models.CharField(max_length=120)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     categories = models.ManyToManyField(Category)
-    overview = models.TextField()
+    overview = models.TextField(default='not available')
     thumbnail = models.ImageField(upload_to='post', default='no_image.jpeg')
-    content = RichTextUploadingField()
+    content = RichTextUploadingField(default='no content available')
     view_count = models.IntegerField(default=0)
     comment_count = models.IntegerField(default=0)
     timestamp = models.DateTimeField(auto_now_add=True)
     featured = models.BooleanField(default=True)
+    previous_post = models.ForeignKey('self', on_delete=models.SET_NULL,
+                                      related_name='previous',
+                                      blank=True, null=True)
+    next_post = models.ForeignKey('self', on_delete=models.SET_NULL,
+                                  related_name='next',
+                                  blank=True, null=True)
 
     def __str__(self):
         return str(self.title)
@@ -31,4 +37,3 @@ class Post(models.Model):
         return reverse('post-view', kwargs={
             'id': self.id,
         })
-
