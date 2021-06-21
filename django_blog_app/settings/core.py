@@ -14,6 +14,8 @@ SECRET_KEY = 'django-insecure-h9i9aq#=lhyvivme#voj3%kpn1t_akxne-*(b6j1ef6*en@nre
 DEBUG = True
 
 ALLOWED_HOSTS = []
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
 
 # Application definition
 
@@ -26,6 +28,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'ckeditor',
+    'ckeditor_uploader',
 
     'blog',
     # 'post',
@@ -47,7 +52,7 @@ ROOT_URLCONF = 'django_blog_app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -107,9 +112,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    'static',
-]
+# STATICFILES_DIRS = [
+#     'static',
+# ]
+STATIC_ROOT = BASE_DIR / 'static'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
@@ -118,3 +124,4 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+

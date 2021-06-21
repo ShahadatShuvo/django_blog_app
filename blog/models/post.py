@@ -3,6 +3,7 @@ from .author import Author
 from .category import Category
 from django.utils.safestring import mark_safe
 from django.urls import reverse
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class Post(models.Model):
@@ -11,6 +12,7 @@ class Post(models.Model):
     categories = models.ManyToManyField(Category)
     overview = models.TextField()
     thumbnail = models.ImageField(upload_to='post', default='no_image.jpeg')
+    content = RichTextUploadingField()
     view_count = models.IntegerField(default=0)
     comment_count = models.IntegerField(default=0)
     timestamp = models.DateTimeField(auto_now_add=True)
