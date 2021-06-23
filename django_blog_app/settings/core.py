@@ -31,11 +31,14 @@ INSTALLED_APPS = [
 
     'ckeditor',
     'ckeditor_uploader',
+    'crispy_forms',
 
     'blog',
     # 'post',
     'merketing',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -1,5 +1,23 @@
 from django import forms
-from blog.models.post import Comment
+from blog.models.post import Comment, Post
+from ckeditor.widgets import CKEditorWidget
+
+
+class PostForm(forms.ModelForm):
+    content = forms.CharField(widget=CKEditorWidget())
+
+    class Meta:
+        model = Post
+        fields = [
+            'title',
+            'overview',
+            'thumbnail',
+            'categories',
+            'content',
+            'featured',
+            'previous_post',
+            'next_post'
+        ]
 
 
 class CommentForm(forms.ModelForm):
