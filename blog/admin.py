@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models.author import Author
 from .models.category import Category
 from .models.post import Post
+from .models.post import Comment
 # Register your models here.
 
 
@@ -28,4 +29,5 @@ class PostAdmin(admin.ModelAdmin):
 
 admin.site.register(Author, AuthorAdmin)
 admin.site.register(Category)
+admin.site.register(Comment)
 admin.site.register(Post, PostAdmin)
