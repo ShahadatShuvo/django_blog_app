@@ -1,4 +1,8 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import (
+    render,
+    get_object_or_404,
+    redirect
+)
 from blog.models.post import Post
 from .category_count_view import get_category_count
 from blog.forms import CommentForm

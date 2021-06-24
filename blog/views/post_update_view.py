@@ -1,4 +1,9 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import (
+    render,
+    redirect,
+    reverse,
+    get_object_or_404
+)
 from blog.forms import PostForm
 from blog.models.post import Post
 from .post_create_view import get_author

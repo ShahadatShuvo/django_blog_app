@@ -1,4 +1,8 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import (
+    render,
+    redirect,
+    reverse
+)
 from blog.models.author import Author
 from blog.forms import PostForm
 
