@@ -20,8 +20,10 @@
                             </div>
                         </div>
 
-                        <a href="">Update</a>
-                        <a href="">Delete</a>
+                        <a class="btn btn-outline-success btn-sm" href="{% url 'post-update' id=post.id%}"
+                           type="submit">Update</a>
+                        <a class="btn btn-outline-success btn-sm" href="{% url 'post-delete' id=post.id%}"
+                           type="submit">Delete</a>
 
                         <h1>{{ post.title }}<a href="#"><i class="fa fa-bookmark-o"></i></a></h1>
                         <div class="post-footer d-flex align-items-center flex-column flex-sm-row"><a href="#"

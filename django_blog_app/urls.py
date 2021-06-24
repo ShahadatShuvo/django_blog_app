@@ -3,6 +3,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from blog.views import (
+    blogView,
     postView,
     post_create,
     post_update,
@@ -14,6 +15,7 @@ urlpatterns = [
     path('ckeditor', include('ckeditor_uploader.urls')),
 
     path('', include('blog.urls')),
+    path('blog/', blogView, name='blog-view'),
     path('create/', post_create, name='post-create'),
     path('post/<id>/', postView, name='post-view'),
     path('post/<id>/update/', post_update, name='post-update'),
