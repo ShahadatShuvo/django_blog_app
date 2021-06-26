@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'blog',
     # 'post',
     'merketing',
+    'accounts',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -118,13 +119,17 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     'static',
 ]
-STATIC_ROOT = BASE_DIR / 'static'
+# STATIC_ROOT = BASE_DIR / 'static'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+LOGIN_REDIRECT_URL = 'home-view'
+
+# # This will display email in Console.
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

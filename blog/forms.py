@@ -1,6 +1,8 @@
 from django import forms
 from blog.models.post import Comment, Post
 from ckeditor.widgets import CKEditorWidget
+from blog.models.author import Author
+
 
 
 class PostForm(forms.ModelForm):
@@ -31,3 +33,17 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ('content',)
+
+
+# Profile Form
+class ProfileForm(forms.ModelForm):
+
+    class Meta:
+        model = Author
+        fields = [
+            'author',
+            'image',
+            'bio',
+            'location',
+            'birth_date',
+            ]

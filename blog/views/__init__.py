@@ -5,3 +5,4 @@ from .category_count_view import get_category_count
 from .post_create_view import post_create
 from .post_update_view import post_update
 from .post_delete_view import post_delete
+from .profile_view import ProfileView

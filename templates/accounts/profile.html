@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags  %}
+
+{% block content %}
+<div class="col-6 offset-3 mt-5 mb-5">
+    <div class="jumbotron">
+        <p class="text-center font-weight-bold">Profile Page</p>
+        <form method="POST" action="." enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form | crispy }}
+            <button type="submit" class="btn btn-outline-success">Update</button>
+        </form>
+        <br><br>
+        <p class="text-center font-weight-bold">Want to
+            <a href="{% url 'change_password'%}" class="font-weight-bold">Change Password?</a></p>
+        <p class="text-center font-weight-bold">Don't have any account?
+            <a href="{% url 'login'%}" class="font-weight-bold">Signup Now</a></p>
+
+    </div>
+</div>
+{% endblock content %}

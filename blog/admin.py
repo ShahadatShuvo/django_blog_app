@@ -11,6 +11,8 @@ class AuthorAdmin(admin.ModelAdmin):
     list_display = [
         'admin_photo',
         'author',
+        'location',
+        'birth_date',
     ]
 
 

@@ -5,7 +5,8 @@ from merketing.models import Signup
 
 def indexView(request):
     featured = Post.objects.filter(featured=True)
-    latest = Post.objects.order_by('-timestamp')[0:3]
+    latest = Post.objects.order_by('-timestamp')[0:6]
+    latest3 = Post.objects.order_by('-timestamp')[0:3]
 
     if request.method == 'POST':
         email = request.POST['email']
@@ -16,5 +17,6 @@ def indexView(request):
     context = {
         'object_list': featured,
         'latest': latest,
+        'latest3': latest3,
     }
     return render(request, 'index.html', context)

@@ -37,7 +37,7 @@
 <section class="featured-posts no-padding-top">
     <div class="container">
         <!--{{ object_list }}-->
-        {% for object in object_list %}
+        {% for object in latest %}
         <!-- Post-->
         <div class="row d-flex align-items-stretch">
             {% if not forloop.counter|divisibleby:2 %}
@@ -98,7 +98,7 @@
         </header>
         <div class="row">
 
-            {% for post in latest %}
+            {% for post in latest3 %}
             <div class="post col-md-4">
                 <div class="post-thumbnail"><a href="post.html"><img src="{{ post.thumbnail.url }}" alt="..."
                                                                      class="img-fluid"></a></div>
